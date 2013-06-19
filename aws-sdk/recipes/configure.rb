@@ -1,8 +1,6 @@
 # configuring credentials for the user
 require 'aws'
+require 'yaml'
 
-# get config data and try to configure AWS
-config = node['AWSconfig']
-
-config['region'] = 'us-west-2'
-AWS.config(config)
+config_file = File.open('/opt/aws/credentials.cfg') { |f| f.read }
+AWS.config(YAML.load(config_file))

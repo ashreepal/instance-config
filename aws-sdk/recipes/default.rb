@@ -1,3 +1,4 @@
+require 'yaml'
 #
 # Cookbook Name:: aws-sdk
 # Recipe:: default
@@ -38,11 +39,14 @@ gem_package "aws-sdk" do
   action :install
 end
 
+# get credentials data and write to a cfg file
+creds = node['AWS-user-credentials']
+Chef::Log.info("\nCreds key: access => #{node['AWS-user-credentials']['access_key_id']}")
+Chef::Log.info("\nCreds key: secret => #{node['AWS-user-credentials']['secret_access_key']}")
+
+creds['region'] = 'us-west-2'
+
+File.open("/opt/aws/credentials.cfg","w+") { |f| f.write(creds.to_yaml) }
+
 # run the configure recipe now that the AWS-SDK gem has been installed
 include_recipe 'aws-sdk::configure'
-
-# get config data and try to configure AWS
-#config = node['AWSconfig']
-
-#config['region'] = 'us-west-2'
-#AWS.config(config)
