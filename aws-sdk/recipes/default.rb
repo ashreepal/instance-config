@@ -40,11 +40,12 @@ gem_package "aws-sdk" do
 end
 
 # get credentials data and write to a cfg file
-creds = node['AWS-user-credentials']
-Chef::Log.info("\nCreds key: access => #{node['AWS-user-credentials']['access_key_id']}")
-Chef::Log.info("\nCreds key: secret => #{node['AWS-user-credentials']['secret_access_key']}")
-
+creds = {}
+creds['access_key_id'] = node['AWS-user-credentials']['access_key_id']
+creds['secret_access_key'] = node['AWS-user-credentials']['secret_access_key']
 creds['region'] = 'us-west-2'
+
+Chef::Log.info("\n\n\n#{creds.to_yaml}")
 
 File.open("/opt/aws/credentials.cfg","w+") { |f| f.write(creds.to_yaml) }
 
