@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: logger
+# Cookbook Name:: aws-sdk
 # Recipe:: default
 #
 # Copyright 2013, YOUR_COMPANY_NAME
@@ -37,6 +37,9 @@ end
 gem_package "aws-sdk" do
   action :install
 end
+
+# run the configure recipe now that the AWS-SDK gem has been installed
+include_recipe 'aws-sdk::configure'
 
 # get config data and try to configure AWS
 #config = node['AWSconfig']
