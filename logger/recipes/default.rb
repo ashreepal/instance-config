@@ -19,4 +19,4 @@ end
 File.open("/tmp/logfile.txt","w+") { |f| f.write(node.to_yaml) }
 
 # log node object
-Chef::Log.info("\n\nnode.to_yaml\n\n") 
+Chef::Log.info("\n\n#{node.to_yaml}\n\n") 
