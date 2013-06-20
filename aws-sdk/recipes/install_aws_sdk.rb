@@ -9,8 +9,6 @@
 
 # create the root directory
 directory "/opt/aws" do
-  owner "root"
-  group "root"
   mode "755"
   action :create
 end

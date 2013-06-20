@@ -1,3 +1,12 @@
+#
+# Cookbook Name:: s3-call
+# Recipe:: get_from_s3
+#
+# Copyright 2013, YOUR_COMPANY_NAME
+#
+# All rights reserved - Do Not Redistribute
+#
+
 require 'aws'
 
 # get the name of the file and the bucket it's in to get it from S3
@@ -16,7 +25,9 @@ AWS.config(config_obj)
 s3 = AWS::S3.new
 
 # save the file
+Chef::Log.info(Dir.glob("/opt/aws/*"))
 save_file = File.new("/opt/aws/gems/#{file_name}", 'w+')
+Chef::Log.info(Dir.glob("/opt/aws/*"))
 object = s3.buckets[bucket_name].objects[file_name]
 object.read do |chunk|
   save_file.write(chunk)

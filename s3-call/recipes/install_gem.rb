@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: aws-sdk
-# Recipe:: install_aws_sdk
+# Cookbook Name:: s3-call
+# Recipe:: install_gem 
 #
 # Copyright 2013, YOUR_COMPANY_NAME
 #

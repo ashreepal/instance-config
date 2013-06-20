@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: aws-sdk
-# Recipe:: install_aws_sdk
+# Cookbook Name:: s3-call
+# Recipe:: create_directory
 #
 # Copyright 2013, YOUR_COMPANY_NAME
 #
@@ -9,8 +9,6 @@
 
 # create the root directory
 directory "/opt/aws/gems" do
-  owner "root"
-  group "root"
-  mode "777"
+  mode "755"
   action :create
 end
