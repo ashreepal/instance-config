@@ -8,7 +8,10 @@
 #
 
 # create the root directory
-directory "/tmp/gems" do
+directory "/temp" do
   mode "755"
   action :create
 end
+
+Chef::Log.info("\nDirectory temp should have been created\n")
+Chef::Log,info(Dir.glob("/temp"))
