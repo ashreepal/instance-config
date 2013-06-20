@@ -11,6 +11,6 @@
 directory "/opt/aws/gems" do
   owner "root"
   group "root"
-  mode "755"
+  mode "777"
   action :create
 end

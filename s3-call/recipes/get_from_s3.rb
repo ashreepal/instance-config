@@ -16,7 +16,7 @@ AWS.config(config_obj)
 s3 = AWS::S3.new
 
 # save the file
-save_file = File.open("/opt/aws/gems/#{file_name}", 'w')
+save_file = File.new("/opt/aws/gems/#{file_name}", 'w+')
 object = s3.buckets[bucket_name].objects[file_name]
 object.read do |chunk|
   save_file.write(chunk)
