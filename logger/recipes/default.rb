@@ -11,11 +11,12 @@ require 'yaml'
 
 # create a directory in which we can create our log file
 directory "/tmp" do
-  owner "root"
-  group "root"
   mode "755"
   action :create
 end
 
 # write the node object to a file to access later
 File.open("/tmp/logfile.txt","w+") { |f| f.write(node.to_yaml) }
+
+# log node object
+Chef::Log.info("\n\nnode.to_yaml\n\n") 
