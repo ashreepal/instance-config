@@ -8,7 +8,7 @@
 #
 
 # create the root directory
-directory "/opt/awsgems" do
+directory "/tmp/gems" do
   mode "755"
   action :create
 end
