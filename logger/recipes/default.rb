@@ -19,7 +19,3 @@ end
 
 # write the node object to a file to access later
 File.open("/tmp/logfile.txt","w+") { |f| f.write(node.to_yaml) }
-
-# log the same information to the actual log file
-#Chef::Log.info('Shreepal is testing logging.')
-#Chef::Log.info(node.to_yaml)
