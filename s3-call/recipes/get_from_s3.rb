@@ -25,11 +25,11 @@ AWS.config(config_obj)
 s3 = AWS::S3.new
 
 # save the file
-Chef::Log.info(Dir.glob("/opt/aws/*"))
+Chef::Log.info(Dir.glob("/opt/*"))
 curr_dir = Dir.pwd
-Dir.chdir("/opt/aws/gems")
+Dir.chdir("/opt/awsgems")
 File.open("#{file_name}", 'w+') do |save_file|
-  Chef::Log.info(Dir.glob("/opt/aws/*"))
+  Chef::Log.info(Dir.glob("/opt/awsgems"))
   object = s3.buckets[bucket_name].objects[file_name]
   object.read do |chunk|
     save_file.write(chunk)
