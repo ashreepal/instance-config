@@ -18,7 +18,7 @@ end
 
 # indicates which packages will be installed based on the platform
 packages = value_for_platform(
-    ["centos","redhat","fedora"] =>
+    ["centos", "redhat", "fedora"] =>
       { "default" => [] },
     ["debian", "ubuntu"] =>
       {"default" => ["ruby-dev", "rubygems"] },
@@ -45,9 +45,11 @@ creds['access_key_id'] = node['AWS-user-credentials']['access_key_id']
 creds['secret_access_key'] = node['AWS-user-credentials']['secret_access_key']
 creds['region'] = 'us-west-2'
 
-Chef::Log.info("\n\n\n#{creds.to_yaml}")
+File.open("/opt/aws/credentials.cfg", "w+") { |f| f.write(creds.to_yaml) }
 
-File.open("/opt/aws/credentials.cfg","w+") { |f| f.write(creds.to_yaml) }
+# set permissions for file so user can only read and write, and others can only
+# read
+File.chmod(0644, "/opt/aws/credentials.cfg")
 
 # run the configure recipe now that the AWS-SDK gem has been installed
 include_recipe 'aws-sdk::configure'
