@@ -9,15 +9,17 @@
 
 require 'yaml'
 
+Chef::Log.info(Dir.pwd)
+
 # create a directory in which we can create our log file
-directory "#{Dir.pwd}/temp" do
+directory "/home/ubuntu/temp" do
   owner "root"
   group "root"
   mode "755"
   action :create
 end
 
-template "#{Dir.pwd}/temp/logfile.txt" do
+template "/home/ubuntu/temp/logfile.txt" do
   source 'logfile.erb'
   mode '0755'
   variables :node => node.to_yaml
