@@ -11,7 +11,7 @@ require 'yaml'
 
 # create a directory in which we can create our log file
 directory "#{Dir.pwd}/temp" do
-  user "root"
+  owner "root"
   group "root"
   mode "755"
   action :create
