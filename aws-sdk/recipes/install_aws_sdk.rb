@@ -2,14 +2,14 @@
 # Cookbook Name:: aws-sdk
 # Recipe:: install_aws_sdk
 #
-# Copyright 2013, YOUR_COMPANY_NAME
+# Copyright 2013, ashreepal
 #
 # All rights reserved - Do Not Redistribute
 #
 
 # create the root directory
 directory "/opt/aws" do
-  mode "755"
+  mode "0755"
   action :create
 end
 

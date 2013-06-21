@@ -2,7 +2,7 @@
 # Cookbook Name:: aws-sdk
 # Recipe:: save_credentials
 #
-# Copyright 2013, YOUR_COMPANY_NAME
+# Copyright 2013, ashreepal
 #
 # All rights reserved - Do Not Redistribute
 #
@@ -17,6 +17,5 @@ creds[:region] = 'us-east-1'
 
 File.open("/opt/aws/credentials.cfg", "w+") { |f| f.write(creds.to_yaml) }
 
-# set permissions for file so user can only read and write, and others can only
-# read
+# set permissions for file
 File.chmod(0644, "/opt/aws/credentials.cfg")

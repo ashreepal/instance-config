@@ -2,7 +2,7 @@
 # Cookbook Name:: aws-sdk
 # Recipe:: default
 #
-# Copyright 2013, YOUR_COMPANY_NAME
+# Copyright 2013, ashreepal
 #
 # All rights reserved - Do Not Redistribute
 #
@@ -16,4 +16,5 @@ include_recipe 'aws-sdk::save_credentials'
 # run the configure recipe now that the AWS-SDK gem has been installed
 include_recipe 'aws-sdk::configure'
 
+# download other gem from S3 and install
 include_recipe 's3-call::default'
