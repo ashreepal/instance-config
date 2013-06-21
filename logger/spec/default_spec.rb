@@ -7,8 +7,12 @@ describe 'logger::default' do
     ).converge('logger::default')
   }
 
+  it 'creates the directory' do
+    expect(runner).to create_directory("#{Dir.pwd}/temp")
+  end
+  
   it 'writes the node object to a file' do
-    expect(runner).to create_file('/tmp/logfile.txt')
+    expect(runner).to create_file("#{Dir.pwd}/temp/logfile.txt")
   end
 
 end

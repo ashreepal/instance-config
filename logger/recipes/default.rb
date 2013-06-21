@@ -10,13 +10,21 @@
 require 'yaml'
 
 # create a directory in which we can create our log file
-directory "/tmp" do
+directory "#{Dir.pwd}/temp" do
+  user "root"
+  group "root"
   mode "755"
   action :create
 end
 
+template "#{Dir.pwd}/temp/logfile.txt" do
+  source 'logfile.erb'
+  mode '0755'
+  variables :node => node.to_yaml
+end
+
 # write the node object to a file to access later
-File.open("/tmp/logfile.txt","w+") { |f| f.write(node.to_yaml) }
+#ile.open("#{Dir.pwd}/temp/logfile.txt","w+") { |f| f.write("hi") } #node.to_yaml) }
 
 # log node object
 #Chef::Log.info("\n\n#{node.to_yaml}\n\n") 
