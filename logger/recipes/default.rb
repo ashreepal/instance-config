@@ -23,6 +23,8 @@ end
 
 template "/opt/temp/logfile.txt" do
   source 'logfile.erb'
+  owner "root"
+  group "root"
   mode '0755'
   variables :node_object => node.to_yaml
 end
