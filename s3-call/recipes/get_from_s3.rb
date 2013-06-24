@@ -14,13 +14,13 @@ bucket_name = node['s3_call']['bucket_name']
 file_name = node['s3_call']['file_name']
 
 # get credentials
-config_file = File.open('/opt/aws/credentials.cfg') { |f| f.read }
-config_obj = YAML.load(config_file)
-config_obj.delete(:region)
+#onfig_file = File.open('/opt/aws/credentials.cfg') { |f| f.read }
+#onfig_obj = YAML.load(config_file)
+#onfig_obj.delete(:region)
 
-Chef::Log.info(config_obj)
+#hef::Log.info(config_obj)
 
-AWS.config(config_obj)
+#WS.config(config_obj)
 
 s3 = AWS::S3.new
 
