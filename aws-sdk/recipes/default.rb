@@ -17,4 +17,4 @@ include_recipe 'aws-sdk::save_credentials'
 include_recipe 'aws-sdk::configure'
 
 # download other gem from S3 and install
-include_recipe 's3-call::default'
+#include_recipe 's3-call::default'
