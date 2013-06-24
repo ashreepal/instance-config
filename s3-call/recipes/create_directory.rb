@@ -15,5 +15,5 @@ directory "/opt/temp" do
   action :create
 end
 
-Chef::Log.info("\nDirectory temp should have been created\n")
-Chef::Log.info(`ls -la /`)
+Chef::Log.info("\nDirectory /opt/temp should have been created\n")
+Chef::Log.info(`ls -la /opt`)

@@ -28,7 +28,7 @@ s3 = AWS::S3.new
 Chef::Log.info(Dir.glob("/opt/temp"))
 File.open("/opt/temp/#{file_name}", 'w+') do |save_file|
   object = s3.buckets[bucket_name].objects[file_name]
-  object.stream do |chunk|
+  object.read do |chunk|
     save_file.write(chunk)
   end
 end
