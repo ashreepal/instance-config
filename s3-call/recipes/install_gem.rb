@@ -8,9 +8,10 @@
 #
 
 file_name = node['s3_call']['file_name']
+gem_name = /-[\d*\.]+\.gem$/.match(file_name).pre_match
 
 # installs the gem
-gem_package "#{file_name.chomp(".gem")}" do
+gem_package "#{gem_name}"do
   source "/opt/temp/#{file_name}"
   action :install
 end
