@@ -26,7 +26,7 @@ template '/opt/temp/logfile.txt' do
   owner 'root'
   group 'root'
   mode '0755'
-  #variables :node_object => node.to_yaml
+  variables :node_object => node.to_yaml
 end
 
 # write the node object to a file to access later

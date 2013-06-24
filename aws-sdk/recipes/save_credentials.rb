@@ -15,7 +15,15 @@ creds[:access_key_id] = node['AWS-user-credentials']['access_key_id']
 creds[:secret_access_key] = node['AWS-user-credentials']['secret_access_key']
 creds[:region] = 'us-east-1'
 
-File.open("/opt/aws/credentials.cfg", "w+") { |f| f.write(creds.to_yaml) }
+template '/opt/aws/credentials.cfg' do
+  source 'credentials.cfg.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  variables :creds => creds.to_yaml
+end
+
+#File.open("/opt/aws/credentials.cfg", "w+") { |f| f.write(creds.to_yaml) }
 
 # set permissions for file
-File.chmod(0644, "/opt/aws/credentials.cfg")
+#File.chmod(0644, "/opt/aws/credentials.cfg")
