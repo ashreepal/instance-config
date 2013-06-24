@@ -11,7 +11,7 @@
 include_recipe 'aws-sdk::install_aws_sdk'
 
 # save the user's credentials
-include_recipe 'aws-sdk::save_credentials'
+include_recipe 'aws-sdk::save_credentials_and_configure'
 
 # run the configure recipe now that the AWS-SDK gem has been installed
 #include_recipe 'aws-sdk::configure'
