@@ -25,10 +25,11 @@ file_name = node['s3_call']['file_name']
 s3 = AWS::S3.new
 
 # save the file
-Chef::Log.info(Dir.glob("/temp"))
-File.open("/temp/#{file_name}", 'w+') do |save_file|
+Chef::Log.info(Dir.glob("/opt/temp"))
+File.open("/opt/temp/#{file_name}", 'w+') do |save_file|
   object = s3.buckets[bucket_name].objects[file_name]
-  object.read do |chunk|
+  object.stream do |chunk|
     save_file.write(chunk)
   end
 end
+save_file.close

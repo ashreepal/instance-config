@@ -8,7 +8,7 @@
 #
 
 # create the root directory
-directory "/temp" do
+directory "/opt/temp" do
   owner "root"
   group "root"
   mode "755"

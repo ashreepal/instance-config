@@ -11,6 +11,6 @@ file_name = node['s3_call']['file_name']
 
 # installs the gem
 gem_package "#{file_name.chomp(".gem")}" do
-  source "/temp/#{file_name}"
+  source "/opt/temp/#{file_name}"
   action :install
 end
