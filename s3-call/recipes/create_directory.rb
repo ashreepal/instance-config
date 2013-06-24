@@ -16,5 +16,4 @@ directory "/temp" do
 end
 
 Chef::Log.info("\nDirectory temp should have been created\n")
-Chef::Log.info(Dir.glob("/temp"))
-Chef::Log.info(%x( ls -la / ))
+Chef::Log.info(`ls -la /`)

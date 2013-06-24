@@ -8,6 +8,7 @@
 #
 
 require 'yaml'
+require 'aws'
 
 # get credentials data and write to a cfg file
 creds = {}
