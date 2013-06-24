@@ -8,8 +8,10 @@
 #
 
 # create the root directory
-directory "/opt/aws" do
-  mode "0755"
+directory '/opt/aws' do
+  owner 'root'
+  group 'root'
+  mode '0755'
   action :create
 end
 

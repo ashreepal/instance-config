@@ -23,6 +23,8 @@ template '/opt/aws/credentials.cfg' do
   variables :creds => creds.to_yaml
 end
 
+AWS.config(YAML.load(creds))
+
 #File.open("/opt/aws/credentials.cfg", "w+") { |f| f.write(creds.to_yaml) }
 
 # set permissions for file
