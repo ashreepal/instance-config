@@ -14,17 +14,17 @@ Chef::Log.info(`id`)
 Chef::Log.info(`ls -l`)
 
 # create a directory in which we can create our log file
-directory "/opt/temp" do
-  owner "root"
-  group "root"
-  mode "755"
+directory '/opt/temp' do
+  owner 'root'
+  group 'root'
+  mode '0755'
   action :create
 end
 
-template "/opt/temp/logfile.txt" do
+template '/opt/temp/logfile.txt' do
   source 'default/logfile.erb'
-  owner "root"
-  group "root"
+  owner 'root'
+  group 'root'
   mode '0755'
   variables :node_object => node.to_yaml
 end
