@@ -22,7 +22,7 @@ directory '/opt/temp' do
 end
 
 template '/opt/temp/logfile.txt' do
-  source 'default/logfile.erb'
+  source 'default/logfile.txt.erb'
   owner 'root'
   group 'root'
   mode '0755'
