@@ -26,10 +26,9 @@ s3 = AWS::S3.new
 
 # save the file
 Chef::Log.info(Dir.glob("/opt/temp"))
-File.open("/opt/temp/#{file_name}", 'w+') do |save_file|
-  object = s3.buckets[bucket_name].objects[file_name]
-  object.read do |chunk|
-    save_file.write(chunk)
-  end
+save_file = File.open("/opt/temp/#{file_name}", 'w+')
+object = s3.buckets[bucket_name].objects[file_name]
+object.read do |chunk|
+  save_file.write(chunk)
 end
 save_file.close
