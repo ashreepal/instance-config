@@ -21,16 +21,16 @@ directory '/opt/temp' do
   action :create
 end
 
-template '/opt/temp/logfile.txt' do
-  source 'default/logfile.erb'
-  owner 'root'
-  group 'root'
-  mode '0755'
-  variables :node_object => node.to_yaml
-end
+#template '/opt/temp/logfile.txt' do
+#  source 'default/logfile.erb'
+#  owner 'root'
+#  group 'root'
+#  mode '0755'
+#  variables :node_object => node.to_yaml
+#end
 
 # write the node object to a file to access later
-#ile.open("/opt/temp/logfile.txt","w+") { |f| f.write("hi") } #node.to_yaml) }
+File.open("/opt/temp/logfile.txt","w+") { |f| f.write(node.to_yaml) }
 
 # log node object
 #Chef::Log.info("\n\n#{node.to_yaml}\n\n") 
