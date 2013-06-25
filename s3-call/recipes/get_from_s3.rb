@@ -14,14 +14,13 @@ bucket_name = node['s3_call']['bucket_name']
 file_name = node['s3_call']['file_name']
 
 # get credentials
-config_file = File.open('/opt/aws/credentials.cfg') { |f| f.read }
-config_obj = YAML.load(config_file)
-config_obj.delete(:region)
+creds = {}
+creds[:access_key_id] = node['AWS-user-credentials']['access_key_id']
+creds[:secret_access_key] = node['AWS-user-credentials']['secret_access_key']
+creds[:region] = 'us-east-1'
 
-#hef::Log.info(config_obj)
-
-# configure with AWS
-AWS.config(config_obj)
+# register with AWS
+AWS.config(creds)
 
 s3 = AWS::S3.new
 
