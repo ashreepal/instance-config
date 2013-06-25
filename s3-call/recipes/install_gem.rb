@@ -16,9 +16,11 @@ version = /[\d+\.]+\d/.match(/-[\d*\.]+\.gem$/.match(file_name).to_s).to_s
 Chef::Log.info("\n\nGem name is #{gem_name} and file name is #{file_name}, version: #{version}\n\n")
 
 # installs the gem
-gem_package "#{gem_name}"do
-  gem_binary "/opt/temp/#{file_name}"
-  version(version)
-  options '--no-ri --no-rdoc'
-  action :install
-end
+#gem_package "#{gem_name}"do
+#  source "/opt/temp/#{file_name}"
+#  version(version)
+#  options '--no-ri --no-rdoc'
+#  action :install
+#end
+
+`/usr/local/bin/gem install /opt/temp/#{file_name} -q --no-rdoc --no-ri -v "#{version}"`
