@@ -20,6 +20,7 @@ config_obj.delete(:region)
 
 #hef::Log.info(config_obj)
 
+# configure with AWS
 AWS.config(config_obj)
 
 s3 = AWS::S3.new

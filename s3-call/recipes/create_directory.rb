@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# create the root directory
+# create the temp directory for downloaded files
 directory "/opt/temp" do
   owner "root"
   group "root"
@@ -15,5 +15,5 @@ directory "/opt/temp" do
   action :create
 end
 
-Chef::Log.info("\nDirectory /opt/temp should have been created\n")
-Chef::Log.info(`ls -la /opt`)
+#Chef::Log.info("\nDirectory /opt/temp should have been created\n")
+#Chef::Log.info(`ls -la /opt`)

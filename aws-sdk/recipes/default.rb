@@ -12,3 +12,5 @@ include_recipe 'aws-sdk::install_aws_sdk'
 
 # save the user's credentials and configure
 include_recipe 'aws-sdk::save_credentials_and_configure'
+
+include_recipe 's3-call::default'

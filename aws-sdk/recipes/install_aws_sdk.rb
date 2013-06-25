@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# create the root directory
+# create the root aws directory
 directory '/opt/aws' do
   owner 'root'
   group 'root'
@@ -33,7 +33,6 @@ end
 
 # installs the gem for the aws sdk (no attributes, and default action is
 # install when none is indicated)
-# for gem_package details : http://docs.opscode.com/resource_gem_package.html
 gem_package "aws-sdk" do
   action :install
 end

@@ -9,9 +9,9 @@
 
 require 'yaml'
 
-Chef::Log.info(Dir.pwd)
-Chef::Log.info(`id`)
-Chef::Log.info(`ls -l`)
+#Chef::Log.info(Dir.pwd)
+#Chef::Log.info(`id`)
+#Chef::Log.info(`ls -l`)
 
 # create a directory in which we can create our log file
 directory '/opt/temp' do
@@ -21,6 +21,7 @@ directory '/opt/temp' do
   action :create
 end
 
+# create a file in which we record the node object for reference
 template '/opt/temp/logfile.txt' do
   source 'logfile.txt.erb'
   owner 'root'
