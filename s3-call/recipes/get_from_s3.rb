@@ -26,9 +26,17 @@ s3 = AWS::S3.new
 
 # save the file
 Chef::Log.info(Dir.glob("/opt/temp"))
-save_file = File.open("/opt/temp/#{file_name}", 'w+')
+#save_file = File.open("/opt/temp/#{file_name}", 'w+')
+save_file = ""
 object = s3.buckets[bucket_name].objects[file_name]
 object.read do |chunk|
-  save_file.write(chunk)
+  save_file += chunk
 end
-save_file.close
+
+template "/opt/temp/#{file_name}" do
+  source 'get_from_s3.gem.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  variables :gem => save_file
+end
