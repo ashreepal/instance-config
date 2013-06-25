@@ -12,11 +12,16 @@ file_name = node['s3_call']['file_name']
 # remove the gem name from the file name (remove the version number and ".gem"
 # from the end of the name)
 gem_name = /-[\d*\.]+\.gem$/.match(file_name).pre_match
-
-Chef::Log.info("Gem name is #{gem_name} and file name is #{file_name}")
+version = /\.gem$/.match(/-[\d*\.]+\.gem$/.match(file_name)).pre_match
+Chef::Log.info("Gem name is #{gem_name} and file name is #{file_name}, version: #{version}")
 
 # installs the gem
 gem_package "#{gem_name}"do
   source "/opt/temp/#{file_name}"
+  version(version)
+  options '--no-ri --no-rdoc'
+  
+  
+  
   action :install
 end
